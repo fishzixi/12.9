@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="index.html">index</a>
+    <p>出了个大新闻</p>
+    <button id="big">变大</button>
+    <button id="bbig">变大80px</button>
+
+    <script>
+
+        var big = document.querySelector("#big");
+        var bbig = document.querySelector("#bbig");
+        var p =document.querySelector("p");
+        big.onclick = function(){
+            p.style="font-size:50px"
+        }
+        bbig.onclick=function(){
+            p.style="font-size:80px";
+        }
+    </script>
+</body>
+</html>

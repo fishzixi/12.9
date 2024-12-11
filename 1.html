@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            height: 250px;
+            width: 400px;
+            background-color: aqua;
+            border-collapse: collapse;
+        }
+
+        /* .tr {
+            height: 50px;
+        } */
+         td {
+            text-align: center;
+            border: 1px solid black;
+         }
+
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <td>姓名</td>
+            <td>科目</td>
+            <td>成绩</td>
+            <td>操作</td>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        var table = document.querySelector("table");
+        var tbody = document.querySelector("tbody");
+        var all = [
+            {
+                name:"张一",
+                subject:"java",
+                score:"90"
+            },
+            {
+                name:"张二",
+                subject:"java",
+                score:"15"
+            },
+            {
+                name:"张三",
+                subject:"java",
+                score:"85"
+            }
+        ];
+
+        var obj = ["name","subject","score","action"];
+        // 相当于用Object.keys()方法，Object.keys() 方法返回一个包含对象所有可枚举属性名称的数组，数组的长度即为对象属性的数量
+        // console.log(all[0].length)获取不到，因为对象不能直接获取长度
+         
+        for(i=0;i<all.length;i++){
+            var tr = document.createElement("tr",{id:`${i}`});
+            var trStr = "";
+            for (j=0;j<obj.length;j++){
+                var del = `<button data-id="${i}">删除</button>`
+                // var td = document.createElement("td");
+                trStr += `<td>${all[i][obj[j]] ? all[i][obj[j]] : del}</td>`
+                // console.log(trStr);
+                // console.log(all[i][obj[j]])
+            }
+            tr.innerHTML = trStr;
+            console.log(trStr)
+            tbody.appendChild(tr)
+        }
+        var trs = document.querySelectorAll("tr")
+        // console.log(tbody.children[0])
+        tbody.addEventListener("click",function(e){
+            console.log(e);
+            // console.log(e.target.tagName);
+            // console.log(e.target);
+            if(e.target.tagName==="BUTTON"){
+                var btnid = parseInt(e.target.dataset.id);
+                // console.log(tbody.children[0])
+
+                // for(z=0;z<trs.length;z++){
+                //     if(z===btnid){
+                //         tbody.removeChild(trs[z]);
+                //     }
+                    
+                // }
+                var btn = document.querySelector("button")
+                tbody.removeChild(btn.parentNode.parentNode);
+                //移除button所在行
+            }
+        })
+
+
+
+
+
+
+
+
+        // function tab(row,col) {
+        //     var table = document.querySelector("table");
+            
+        //     var top1 = {
+        //     name:"姓名",
+        //     subject:"科目",
+        //     score:"成绩",
+        //     operation:"操作"
+        // }
+
+        // var student = {
+        //     student1:{
+        //     name:"张三",
+        //     subject:"java",
+        //     score:150, 
+        //     },
+
+        //     student2: {
+        //     name:"张二",
+        //     subject:"java",
+        //     score:15,
+        //     },
+        //     student3:{
+        //     name:"张一",
+        //     subject:"java",
+        //     score:100, 
+        //     }
+        // }
+            
+        
+        // var rows = [];
+        // for(i=0;i<row;i++){
+        //     rows.push("<tr></tr>");
+        //     }
+        //     // console.log(rows);
+
+        // table.innerHTML= rows.join("");
+        //  console.log(table);
+        //  var tr = document.querySelectorAll("tr");
+        
+        // var thlist = [];
+        // for (key in top1){
+        //     thlist.push("<th>"+top1[key]+"</th>");
+        //     console.log(top1[key]);
+        // }
+        // tr[0].innerHTML = thlist.join("");
+        // // console.log(thlist);
+        // var tdlist = [];
+        
+        // for(key in student){
+        //     for(k in student[key])
+        //     tdlist.push("<td>"+student[key][k]+"</td>");
+        // } 
+        // console.log(tdlist)
+        // var threetd =[];  
+        // while(tdlist.length>0){
+        //     for (j=1;j<row;j++){
+        //         tr[j].innerHTML=tdlist.splice(0,3).join("");
+        //     }
+        // }
+        // console.log(threetd);
+        // var a3=tdlist.splice(6,9).join("");
+
+        
+
+       
+
+        
+
+
+
+        // }
+        // var student1 ={
+        //     name:"张三",
+        //     subject:"java",
+        //     score:150, 
+        //     }
+
+        //     var student2 = {
+        //     name:"张二",
+        //     subject:"java",
+        //     score:15,
+        //     }
+        //     var student3 ={
+        //     name:"张一",
+        //     subject:"java",
+        //     score:100, 
+        //     }
+        // console.log(tab(4,4));
+
+        // var top1 = {
+        //     name:"姓名",
+        //     subject:"科目",
+        //     score:"成绩",
+        //     // operation:"操作"
+        // }
+        // for (key in top1){
+        //     console.log(top1[key]);
+        // }
+
+        
+
+        // var top2 = {
+        //     name:"张三",
+        //     subject:"java",
+        //     score:150, 
+        // }
+        // var top3 = {
+        //     name:"张二",
+        //     subject:"java",
+        //     score:15, 
+        // }
+        // var top4 = {
+        //     name:"张四",
+        //     subject:"java",
+        //     score:100, 
+        // }
+
+        // var table = document.querySelector("table");
+        // console.log(table);
+
+        
+    </script>
+</body>
+</html>

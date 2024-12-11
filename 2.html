@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 20px;
+            height: 20px;
+            /* background-color: aqua; */
+            margin-bottom: 20px;
+        }
+
+        .divr {
+            color: red;
+        }
+
+        .divb {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html">index</a>
+    <div id = "cont">
+        <div id='a0' data-index="0">❤</div>
+        <div id="a0" data-index="1">❤</div>
+        <div id="a0" data-index="2">❤</div>
+        <div id="a0" data-index="3">❤</div>
+        <div id="a0" data-index="4">❤</div>
+        <div id="a0" data-index="5">❤</div>
+    </div>
+    <script>
+        var divs = document.querySelectorAll("#a0");
+        var cont = document.querySelector("#cont");
+        cont.addEventListener("click",function(e){
+            console.log(e);
+            console.log(e.target.tagName);
+            if(e.target.tagName==="DIV"){//确保点击的是div HTML标签要大写才能查到，但svg里的小写才能查到
+                 // 清除之前的与新点击相关的类
+            divs.forEach(div => {
+                div.classList.remove("divr", "divb");
+            });
+                var index = parseInt(e.target.dataset.index);
+                // console.log(typeof e.target.dataset.index)
+                // 这返回的是一个string，所以用parseInt给他转换为数字
+                console.log(index);
+                for(i=0;i<divs.length;i++){
+                if(index>=i){
+                    divs[i].classList.add("divr")
+                }else{
+                    divs[i].classList.add("divb");
+                }
+                
+            }
+            }
+        })
+// divs.forEach(...)：
+
+// forEach 是 Array 的一个方法，用于对数组中的每个元素执行给定的函数。在这里，这里的 divs 是 NodeList，它包含了所有选择的 div 元素。
+//在每一轮的迭代中，div 是 divs 列表中的一个 DOM 元素。
+// 箭头函数 (div => { ... })：相当于functon(div)
+
+// 这是一个 ES6 箭头函数，它接受一个参数 div，该参数表示当前正在遍历的 div 元素。
+        
+        
+   
+    </script>
+</body>
+</html>
